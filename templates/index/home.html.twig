@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/login.css">
+{% endblock %}
+
+{% block bodyClasses %}min-h-screen bg-gray-100 dark:bg-gray-700{% endblock %}
+{% block body %}
+    <div class="min-h-screen flex flex-wrap content-center justify-center">
+        <div class="lg:max-w-xl bg-ostracraft rounded-3xl transform -rotate-6 py-2 contour-shadow dark:contour-dark-shadow">
+            <div class="max-w-sm lg:max-w-xl bg-gray-200 dark:bg-gray-800 px-10 py-5 rounded-3xl grid md:grid-rows-loginModal grid-cols-1 grid-areas-loginModal text-black dark:text-white transform rotate-6 contour-shadow dark:contour-dark-shadow">
+                <div class="grid-in-head">
+                    <div class="bg-no-repeat h-12 w-48 md:h-20 md:w-72 bg-contain bg-ostrabot-banner-dark dark:bg-ostrabot-banner"></div>
+                </div>
+                <div class="grid-in-body md:mt-5 text-xs md:text-lg">
+                    <p class="mb-3 ml-5"><span class="font-bold">OstraBot panel</span> is a powerful dashboard to easily
+                        manage the <span class="font-bold">OstraBot</span> !</p>
+                    <h1 class="text-2xl md:text-4xl font-bold font-eras-bold-itc">Please login</h1>
+
+                    <p class="my-3 ml-5"><i class="fas fa-info-circle mx-2"></i>To access to <span class="font-bold">OstraBot</span>
+                        panel, you have to login with your <span class="font-bold">Discord</span> account !</p>
+                    <p class="my-3 ml-5"><i class="fas fa-info-circle mx-2"></i>To login successfully, you have to be in
+                        the <a href="{{ discordLink }}" target="_blank">Discord server</a>.</p>
+                    <p class="my-3 ml-5"><i class="fas fa-info-circle mx-2"></i>The <span
+                                class="font-bold">permissions</span> on the panel depend on your Discord role on the
+                        server</p>
+
+                    <div class="text-center">
+                        <a href="{{ loginLink }}" class="login-link"><i class="fab fa-discord"></i> Login with
+                            Discord</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a class="toggle-theme" onclick="switchTheme()"><i class="fas fa-sun text-yellow-300 text-3xl"></i></a>
+    <script>
+        function switchTheme() {
+            let html = document.querySelector('html');
+            let button = document.querySelector('.toggle-theme');
+
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark'))
+                button.innerHTML = '<i class="fas fa-sun text-yellow-300 text-3xl"></i>';
+            else
+                button.innerHTML = '<i class="fas fa-moon text-gray-900 text-3xl"></i>';
+        }
+    </script>
+{% endblock %}

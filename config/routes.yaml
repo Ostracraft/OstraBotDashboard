@@ -1,0 +1,8 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+connect_discord_check:
+  path: /login/callback
+logout:
+  path: /logout
