@@ -102,9 +102,6 @@ class DiscordAuthenticator extends SocialAuthenticator
             $roles = ['ROLE_USER'];
         $user->setRoles($roles);
 
-        $this->em->persist($user);
-        $this->em->flush();
-
         return $user;
     }
 
