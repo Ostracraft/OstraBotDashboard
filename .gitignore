@@ -17,3 +17,4 @@
 /templates/static/node_modules/
 /templates/static/
 .env
+/migrations/
