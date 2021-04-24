@@ -38,6 +38,28 @@ class IndexController extends AbstractController
     }
 
     /**
+     * @Route("/index.html", name="index:indexhtml")
+     * @return RedirectResponse
+     */
+    public function indexHtml(): RedirectResponse {
+        return new RedirectResponse($this->generateUrl("index:home"));
+    }
+    /**
+     * @Route("/index.php", name="index:indexphp")
+     * @return RedirectResponse
+     */
+    public function indexPhp(): RedirectResponse {
+        return new RedirectResponse($this->generateUrl("index:home"));
+    }
+    /**
+     * @Route("/index", name="index:index")
+     * @return RedirectResponse
+     */
+    public function index(): RedirectResponse {
+        return new RedirectResponse($this->generateUrl("index:home"));
+    }
+
+    /**
      * @Route("/login", name="index:login")
      * @param ClientRegistry $registry
      * @return Response
