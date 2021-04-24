@@ -1,14 +1,14 @@
 security:
   encoders:
-    App\Entity\User:
+    App\Document\User:
       algorithm: auto
 
   # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
   providers:
     # used to reload user from session & other features (e.g. switch_user)
     app_user_provider:
-      entity:
-        class: App\Entity\User
+      mongodb:
+        class: App\Document\User
         property: id
     # used to reload user from session & other features (e.g. switch_user)
   firewalls:

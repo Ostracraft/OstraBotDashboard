@@ -1,4 +1,7 @@
 {
+    "alcaeus/mongo-php-adapter": {
+        "version": "1.2.0"
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.1"
     },
@@ -69,6 +72,23 @@
     "doctrine/migrations": {
         "version": "3.1.1"
     },
+    "doctrine/mongodb-odm": {
+        "version": "2.2.0"
+    },
+    "doctrine/mongodb-odm-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "1fd8598bf42227a1c8905edd32f640e4c5d15eff"
+        },
+        "files": [
+            "./config/packages/doctrine_mongodb.yaml",
+            "./config/packages/prod/doctrine_mongodb.yaml",
+            "./src/Document/.gitignore"
+        ]
+    },
     "doctrine/orm": {
         "version": "2.8.2"
     },
@@ -93,6 +113,9 @@
     "guzzlehttp/psr7": {
         "version": "1.8.1"
     },
+    "jean85/pretty-package-versions": {
+        "version": "1.6.0"
+    },
     "knpuniversity/oauth2-client-bundle": {
         "version": "1.20",
         "recipe": {
@@ -116,6 +139,9 @@
     },
     "league/oauth2-client": {
         "version": "2.6.0"
+    },
+    "mongodb/mongodb": {
+        "version": "1.8.0"
     },
     "monolog/monolog": {
         "version": "2.2.0"

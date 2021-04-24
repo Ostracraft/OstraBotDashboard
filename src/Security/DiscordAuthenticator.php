@@ -2,10 +2,11 @@
 
 namespace App\Security;
 
-use App\Entity\User;
+use App\Document\User;
 use App\Utils\DiscordGuildMember;
 use App\Utils\DiscordUtils;
-use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ODM\MongoDB\DocumentManager;
+use Doctrine\ODM\MongoDB\MongoDBException;
 use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
 use KnpU\OAuth2ClientBundle\Client\OAuth2Client;
 use KnpU\OAuth2ClientBundle\Security\Authenticator\SocialAuthenticator;
@@ -30,21 +31,21 @@ class DiscordAuthenticator extends SocialAuthenticator
 
     private ClientRegistry $registry;
     private RouterInterface $router;
-    private EntityManagerInterface $em;
+    private DocumentManager $dm;
     private HttpClientInterface $httpClient;
 
     /**
      * DiscordAuthenticator constructor.
      * @param ClientRegistry $registry
      * @param RouterInterface $router
-     * @param EntityManagerInterface $em
+     * @param DocumentManager $dm
      * @param HttpClientInterface $httpClient
      */
-    public function __construct(ClientRegistry $registry, RouterInterface $router, EntityManagerInterface $em, HttpClientInterface $httpClient)
+    public function __construct(ClientRegistry $registry, RouterInterface $router, DocumentManager $dm, HttpClientInterface $httpClient)
     {
         $this->registry = $registry;
         $this->router = $router;
-        $this->em = $em;
+        $this->dm = $dm;
         $this->httpClient = $httpClient;
     }
 
@@ -102,6 +103,11 @@ class DiscordAuthenticator extends SocialAuthenticator
             $roles = ['ROLE_USER'];
         $user->setRoles($roles);
 
+        try {
+            $this->dm->persist($user);
+            $this->dm->flush();
+        } catch (MongoDBException $e) {
+        }
         return $user;
     }
 
