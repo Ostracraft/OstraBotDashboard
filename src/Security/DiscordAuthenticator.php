@@ -74,6 +74,7 @@ class DiscordAuthenticator extends SocialAuthenticator
         $user = new User();
         $user->setId($discordUser->getId());
         $user->setUsername($discordUser->getUsername());
+        $user->setDiscriminator($discordUser->getDiscriminator());
         $user->setAvatarUrl(DiscordUtils::getAvatarUrl($discordUser));
 
         try {

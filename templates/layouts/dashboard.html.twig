@@ -111,7 +111,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ app.user.getUsername() }}</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ app.user.getUsername() }}#{{ app.user.getDiscriminator() }}</span>
                                 <img class="img-profile rounded-circle"
                                      src="{{ app.user.getAvatarURL() }}">
                             </a>
@@ -163,7 +163,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Voulez-vous vous déconnecter ?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -178,10 +178,10 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="/jquery/jquery.min.js"></script>
-    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
-    <script src="/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/js/jquery.easing.min.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="/js/sb-admin-2.min.js"></script>
 {#    <!-- Page level plugins -->#}

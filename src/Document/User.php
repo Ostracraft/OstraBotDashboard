@@ -27,6 +27,11 @@ class User implements UserInterface
     /**
      * @MongoDB\Field(type="string")
      */
+    protected $discriminator;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
     protected string $avatarUrl;
 
     /**
@@ -80,6 +85,22 @@ class User implements UserInterface
     public function setUsername($username): void
     {
         $this->username = $username;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDiscriminator()
+    {
+        return $this->discriminator;
+    }
+
+    /**
+     * @param mixed $discriminator
+     */
+    public function setDiscriminator($discriminator): void
+    {
+        $this->discriminator = $discriminator;
     }
 
     /**
