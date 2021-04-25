@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Utils\Utils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,7 +27,7 @@ class DashboardController extends AbstractController
         if (!$this->isGranted('ROLE_USER'))
             return new RedirectResponse($this->generateUrl("index:home"));
         return $this->render("dashboard/home.html.twig", [
-            'logoutLink' => $this->generateUrl('logout')
+            'motd' => Utils::getMotd()
         ]);
     }
 

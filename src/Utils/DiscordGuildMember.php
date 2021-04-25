@@ -24,7 +24,7 @@ class DiscordGuildMember
      * @param mixed $premiumSince
      * @param mixed $joinedAt
      * @param bool $isPending
-     * @param DiscordResourceOwner $user
+     * @param array $user
      * @param bool $mute
      * @param bool $deaf
      */
